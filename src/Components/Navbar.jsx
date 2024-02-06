@@ -16,7 +16,7 @@ const Navbar = () => {
        </div>
         <div className="flex items-center text-[#C5C3C0] font-semibold text-[26px] ">
         <img src={logo}  className="w-12 h-12 mr-2" />
-        <p>VALVE</p>
+        <p>SINK</p>
         
         </div>
         

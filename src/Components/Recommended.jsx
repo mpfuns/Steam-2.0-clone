@@ -9,7 +9,7 @@ function Recommended() {
     {/*title */}
     <p>NEW GAMES</p>
      {/* Feature  */}
-     <div className="h-[31rem] md:h-[24rem] w-full flex  flex-col  md:flex-row pt-3">
+     <div className="h-full md:h-[24rem] w-full flex  flex-col  md:flex-row pt-3">
         <div className="w-full md:w-[62%]  h-full bg-red-400 flex">
             <img src={gaming} alt=""  className="object-cover w-full"/>
         </div>
