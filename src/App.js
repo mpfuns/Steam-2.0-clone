@@ -1,12 +1,12 @@
 import Navbar from "./Components/Navbar";
 import Categories from "./Components/Categories";
-import Recommended from "./Components/Recommended";
+
 import SpecialOffers from "./Components/SpecialOffers";
 
 
 function App() {
   return (
-    <div className=" bg-[#1b2838] ">
+    <div className=" bg-[rgb(27,40,56)] ">
         {/* Navbar  */ }
         <Navbar />
       <div className="lg:max-w-[90vw]  xl:max-w-[80vw]     mx-auto  ">
@@ -14,7 +14,7 @@ function App() {
           {/* Categorites */ }
           <Categories />
          {/* Recommend */ }
-           <Recommended />
+         
            {/*  SpecialOffers  */ }
         <SpecialOffers />
            </div>
