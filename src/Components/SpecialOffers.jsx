@@ -1,6 +1,6 @@
 import React from 'react'
 import gaming from "../assets/gaming.jpg";
-import Card from './Card';
+import Card from '../UI/Card';
 import game1 from '../assets/1.jpg'
 import  game2 from '../assets/2.jpg'
 function SpecialOffers() {
