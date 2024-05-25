@@ -1,5 +1,4 @@
 import React from 'react'
-import { motion, transform } from "framer-motion"
 
 import { FaGamepad, FaFootballBall } from "react-icons/fa";
 import { BiGame } from "react-icons/bi";
@@ -15,9 +14,9 @@ import { GiHealthPotion, GiHeavyFighter, GiSaberToothedCatHead } from "react-ico
 
 const IconGroup = () => {
   return (
-    <motion.div 
-    className='flex relative  w-full whitespace-nowrap text-9xl space-x-0.5 translate-y-[-300px]  rotate-[-10deg]'
-     animate={{x:[-1000, 600, 0], y:[0,-600, 0], rotate:[-30,-30,-30], transition:{ repeat: Infinity, duration: 40}} }
+    <div 
+    className='flex  relative whitespace-nowrap w-full  text-6xl space-x-2 '
+    
     >
     <GiSaberToothedCatHead  />
       <FaGamepad  />  
@@ -40,7 +39,7 @@ const IconGroup = () => {
     <RiGameFill   />
     <IoGameController  />
     <GiBulletBill  />
-    </motion.div>
+    </div>
   )
 }
 
