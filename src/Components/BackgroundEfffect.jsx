@@ -51,6 +51,15 @@ const BackgroundEfffect = () => {
    <RowIcons />
    <RowIcons />
    <RowIcons />
+   <RowIcons />
+   <RowIcons />
+   <RowIcons />
+   <RowIcons />
+   <RowIcons />
+   <RowIcons />
+   <RowIcons />
+   <RowIcons />
+   <RowIcons />
     </div>
     </div>
   )

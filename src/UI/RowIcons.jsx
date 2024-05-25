@@ -4,7 +4,16 @@ import { motion, transform } from "framer-motion"
 
 const RowIcons = () => {
   return (
-    <motion.div className='rotate-[-30deg] translate-y-[-600px] translate-x-[-2500px]'
+    <motion.div className=''
+    animate={{x:[-3000, -100], y:[-300,-600], rotate:[-30,-30], opacity:[0,1,1,0]}}
+    transition={{
+       duration:20,
+       repeat: Infinity, 
+       ease:"linear",
+       delay:-20,
+    }}
+
+
    
     >
     <div  className='flex space-y-6 space-x-2 items-center'>
