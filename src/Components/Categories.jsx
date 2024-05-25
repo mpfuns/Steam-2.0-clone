@@ -3,7 +3,7 @@ import React from 'react'
 export default function Categories() {
   return (
     
-    <div className=' gradient  mx-[2rem] pl-4 pr-4 mt-8 flex items-center justify-between rounded-full py-[0.1rem] '>
+    <div className='  gradient  mx-[2rem] pl-4 pr-4 mt-8 flex items-center justify-between rounded-full py-[0.1rem] '>
         <ul className='flex items-center py-1.5 text-white text-[14px] gap-10'>
           <li>
             <p>Explore</p>
