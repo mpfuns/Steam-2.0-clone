@@ -1,16 +1,19 @@
 import React from 'react'
 import Lottie from 'lottie-react'
-import  testIdea  from "../assets/test.json"
+import  backgroundElement  from "../assets/backgroundeffect.json"
 
 
 
 const BackgroundEfffect = () => {
   return (
-    <>
-    <div className='bg-zinc-800 overflow-hidden' >  
-<Lottie className='max-w-56 max-h-56 rotate-[-30deg]'  animationData={testIdea}  />
-</div>
-    </>
+      <>
+      <div className='bg-zinc-800 overflow-hidden hidden md:block' >
+        <Lottie className='max-w-full rotate-[-10deg] max-h-56 '  animationData={backgroundElement}  />
+      </div>
+      <div className='bg-zinc-800 overflow-hidden block md:hidden' >
+        <Lottie className=' '  animationData={backgroundElement}  />
+      </div>
+      </>
   )
 }
 

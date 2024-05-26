@@ -15,11 +15,28 @@ function App() {
       <div className="lg:max-w-[90vw]  xl:max-w-[80vw]     mx-auto  ">
       
           {/* Categorites */ }
-          <div>
-          <Categories />
+        <div className=" relative items-center  ">
+            <div className="hidden   md:block">
+            <div className="relative mx-[2rem]">
+              <Categories />
+          
+            </div> 
+            <div className=" z-10 absolute mt-16   left-[25%] bg-sky-800/75 p-4 rounded-lg cursor-not-allowed  ">
+            <h1 className=" text-6xl text-white font-semibold " > Fun Free Games </h1>
+            </div> 
+            </div>
+          
+            <div className="block   md:hidden">
+            
+            <div className=" z-10 absolute mt-8  mr-[2rem] left-[20%] bg-sky-800/75 p-4 rounded-lg cursor-not-allowed  ">
+            <h1 className=" text-4xl text-white font-semibold " > Fun Free Games </h1>
+            </div> 
+            </div>
+         
           <BackgroundEfffect />
         
           </div>
+
           
          {/* Recommend */ }
          <div className='mx-[2rem] mt-[2rem] text-white text-[14px]'>
