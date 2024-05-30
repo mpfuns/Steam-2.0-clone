@@ -3,6 +3,7 @@ import Categories from "./Components/Categories";
 import Recommend from "./UI/Recommend";
 import SpecialOffers from "./Components/SpecialOffers";
 import BackgroundEfffect from "./Components/BackgroundEfffect";
+import Slider from "./UI/Slider";
 
 
 
@@ -37,6 +38,7 @@ function App() {
         
           </div>
 
+<Slider />
           
          {/* Recommend */ }
          <div className='mx-[2rem] mt-[2rem] text-white text-[14px]'>
