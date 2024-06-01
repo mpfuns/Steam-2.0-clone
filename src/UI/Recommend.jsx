@@ -1,28 +1,35 @@
 import React from 'react'
-import gaming from "../assets/gaming.jpg";
 import { TbAppsFilled } from "react-icons/tb";
+import { motion, AnimatePresence } from 'framer-motion';
 
-function Recommend() {
+function Recommend({image}) {
   return (
-    <div > 
     
-   
+    < motion.div 
+    layout
+    key={image}
+        initial={{opacity:0}}
+        animate={{opacity:1}}
+        exit={{opacity:0}}
+        transition={{duration: 1}}
+        className=' '
+    > 
      {/* Feature  */}
      <div className="h-full md:h-[24rem] w-full flex  flex-col  md:flex-row pt-3">
         <div className="w-full md:w-[62%]  h-full bg-red-400 flex">
-            <img src={gaming} alt=""  className="object-cover w-full"/>
+            <img src={image} alt=""  className="object-cover w-full"/>
         </div>
         <div className="bg-[#0f1922] h-full w-full md:w-[38%] flex flex-col justify-between  ">
             <div className="  flex flex-col  items-center">
             <p className='text-[30px] mt-3'>Gaming Room</p>
             <div className="pr-4 w-full h-[24rem]  md:h-[15rem] pt-3 ">
                 <div className="h-[35%] w-full flex pb-1 ">
-                    <img src={gaming} alt=""  className="object-cover w-[50%] pr-1 blur-"/>
-                    <img src={gaming} alt=""  className="object-cover w-[50%] pl-1"/>
+                    <img src={image} alt=""  className="object-cover w-[50%] pr-1 blur-"/>
+                    <img src={image} alt=""  className="object-cover w-[50%] pl-1"/>
                 </div>
                 <div className="h-[35%] w-full flex pt-1 ">
-                    <img src={gaming} alt=""  className="object-cover w-[50%] pr-1"/>
-                    <img src={gaming} alt=""  className="object-cover w-[50%] pl-1"/>
+                    <img src={image} alt=""  className="object-cover w-[50%] pr-1"/>
+                    <img src={image} alt=""  className="object-cover w-[50%] pl-1"/>
                 </div>
                 <div className=" flex flex-col  items-center md:items-start">
                      <p className='text-[22px] pt-4'>Play Now</p>
@@ -44,7 +51,8 @@ function Recommend() {
         </div>
 
      </div>
-    </div>
+    </motion.div>
+   
   )
 }
 

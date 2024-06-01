@@ -38,13 +38,8 @@ function App() {
         
           </div>
 
-<Slider />
-          
-         {/* Recommend */ }
-         <div className='mx-[2rem] mt-[2rem] text-white text-[14px]'>
-           {/*title */}
-          <p>NEW GAMES</p>
-         <Recommend />
+         <div className=' mt-[0.2rem] text-white text-[14px]'>
+          <Slider />
          </div>
         
            {/*  SpecialOffers  */ }
