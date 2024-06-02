@@ -18,7 +18,7 @@ function Recommend({image}) {
     > 
      {/* Feature  */}
      <div className="h-full md:h-[24rem] w-full flex  flex-col  md:flex-row pt-3">
-        <div className="w-full md:w-[62%]  h-fullflex">
+        <div className="w-full md:w-[62%]  h-full flex">
             {/*  where  image or gerne will display */}
             <img src={image} alt=""  className="object-cover w-full"/>
         </div>
