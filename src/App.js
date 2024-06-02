@@ -1,14 +1,45 @@
 import Navbar from "./Components/Navbar";
 import Categories from "./Components/Categories";
-import Recommend from "./UI/Recommend";
 import SpecialOffers from "./Components/SpecialOffers";
 import BackgroundEfffect from "./Components/BackgroundEfffect";
 import Slider from "./UI/Slider";
+import axois  from 'axios'
+import { useEffect } from "react";
+import axios from "axios";
 
 
 
 
 function App() {
+
+async function fecthGamesData (){
+  
+
+const options = {
+  method: 'GET',
+  url: 'https://free-to-play-games-database.p.rapidapi.com/api/games',
+  headers: {
+    'X-RapidAPI-Key': 'b1d55a6708mshf76fe5221fa817dp16f221jsnac8a17d70d0d',
+    'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
+  }
+};
+
+try {
+	const response = await axios.request(options);
+	console.log(response.data);
+} catch (error) {
+	console.error(error);
+}
+   
+}
+
+
+useEffect(()=>{
+
+  fecthGamesData();
+},[]);
+
+
   return (
     <div className=" bg-[rgb(27,40,56)] ">
         {/* Navbar  */ }

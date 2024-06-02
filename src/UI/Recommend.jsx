@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { TbAppsFilled } from "react-icons/tb";
 import { motion, AnimatePresence } from 'framer-motion';
 
 function Recommend({image}) {
+
+    const [thumbnailDisplay, setThumbnailDisplay] = useState("main")
   return (
     
     < motion.div 
@@ -16,14 +18,18 @@ function Recommend({image}) {
     > 
      {/* Feature  */}
      <div className="h-full md:h-[24rem] w-full flex  flex-col  md:flex-row pt-3">
-        <div className="w-full md:w-[62%]  h-full bg-red-400 flex">
+        <div className="w-full md:w-[62%]  h-fullflex">
+            {/*  where  image or gerne will display */}
             <img src={image} alt=""  className="object-cover w-full"/>
         </div>
         <div className="bg-[#0f1922] h-full w-full md:w-[38%] flex flex-col justify-between  ">
             <div className="  flex flex-col  items-center">
             <p className='text-[30px] mt-3'>Gaming Room</p>
             <div className="pr-4 w-full h-[24rem]  md:h-[15rem] pt-3 ">
+                
                 <div className="h-[35%] w-full flex pb-1 ">
+                    {/* when  onMosueenter in "Image||genre||etc"  pass down the  string  to  change state  to  the string  display image */}
+                    {/* When on Mouseleabe change  state back  to "thumbnail" */}
                     <img src={image} alt=""  className="object-cover w-[50%] pr-1 blur-"/>
                     <img src={image} alt=""  className="object-cover w-[50%] pl-1"/>
                 </div>
