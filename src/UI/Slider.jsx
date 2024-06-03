@@ -4,7 +4,7 @@ import {RxDotFilled} from 'react-icons/rx';
 import Recommend from './Recommend';
 
 
-const Slider = () => {
+const Slider = ({ section}) => {
     const cards=[{wallpaper:"https://images.unsplash.com/photo-1593277992013-05e17a5f417d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" , title:"Gaming Room"},
     {wallpaper:"https://images.unsplash.com/photo-1566577134770-3d85bb3a9cc4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" , title:"Gaming Room 1"},
     {wallpaper: "https://images.unsplash.com/photo-1585857188938-2f7ae5afb6f8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" , title:"Gaming Room 2"},

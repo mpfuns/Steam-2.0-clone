@@ -4,20 +4,25 @@ import SpecialOffers from "./Components/SpecialOffers";
 import BackgroundEfffect from "./Components/BackgroundEfffect";
 import Slider from "./UI/Slider";
 import axois  from 'axios'
-import { useEffect } from "react";
+import  react,{ useEffect, useState } from "react";
 import axios from "axios";
 
 
 
 
 function App() {
-
+  const [randomData, setrandomData] =useState(null)
+   const [relevanceData, setRelevanceData] =useState(null)
+   const [popularityData, setPopularityData] =useState(null)
+   const [categoryData, setCategoryData] =useState(null)
+   const [pcData, setPcData] =useState(null) 
+   const [broswerData, setBroswerData] =useState(null) 
 async function fecthGamesData (){
   
 
 const options = {
   method: 'GET',
-  url: 'https://free-to-play-games-database.p.rapidapi.com/api/games',
+  url: 'https://free-to-play-games-database.p.rapidapi.com/api/games?sort-by=relevance',
   headers: {
     'X-RapidAPI-Key': 'b1d55a6708mshf76fe5221fa817dp16f221jsnac8a17d70d0d',
     'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
@@ -26,7 +31,7 @@ const options = {
 
 try {
 	const response = await axios.request(options);
-	console.log(response.data);
+	console.log(response.data.slice(0, 12));
 } catch (error) {
 	console.error(error);
 }
@@ -70,7 +75,7 @@ useEffect(()=>{
           </div>
 
          <div className=' mt-[0.2rem] text-white text-[14px]'>
-          <Slider />
+          <Slider section="Features" />
          </div>
         
            {/*  SpecialOffers  */ }

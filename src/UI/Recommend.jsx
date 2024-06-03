@@ -30,12 +30,12 @@ function Recommend({image}) {
                 <div className="h-[35%] w-full flex pb-1 ">
                     {/* when  onMosueenter in "Image||genre||etc"  pass down the  string  to  change state  to  the string  display image */}
                     {/* When on Mouseleabe change  state back  to "thumbnail" */}
-                    <img src={image} alt=""  className="object-cover w-[50%] pr-1 blur-"/>
-                    <img src={image} alt=""  className="object-cover w-[50%] pl-1"/>
+                    <div  className="object-cover w-[50%] mr-2 bg-green-300" > </div>
+                    <div  className="object-cover w-[50%] mr-1 bg-green-300" > </div>
                 </div>
                 <div className="h-[35%] w-full flex pt-1 ">
-                    <img src={image} alt=""  className="object-cover w-[50%] pr-1"/>
-                    <img src={image} alt=""  className="object-cover w-[50%] pl-1"/>
+                <div  className="object-cover w-[50%] mr-2 bg-green-300" > </div>
+                    <div  className="object-cover w-[50%] mr-1 bg-green-300" > </div>
                 </div>
                 <div className=" flex flex-col  items-center md:items-start">
                      <p className='text-[22px] pt-4'>Play Now</p>
