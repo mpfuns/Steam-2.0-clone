@@ -3,9 +3,9 @@ import Categories from "./Components/Categories";
 import SpecialOffers from "./Components/SpecialOffers";
 import BackgroundEfffect from "./Components/BackgroundEfffect";
 import Slider from "./UI/Slider";
-import axois  from 'axios'
 import  react,{ useEffect, useState } from "react";
 import axios from "axios";
+
 
 
 
@@ -17,31 +17,55 @@ function App() {
    const [categoryData, setCategoryData] =useState(null)
    const [pcData, setPcData] =useState(null) 
    const [broswerData, setBroswerData] =useState(null) 
-async function fecthGamesData (){
+
+   async function fecthGamesData (link){
   
 
 const options = {
   method: 'GET',
-  url: 'https://free-to-play-games-database.p.rapidapi.com/api/games?sort-by=relevance',
+  url: link ,
   headers: {
     'X-RapidAPI-Key': 'b1d55a6708mshf76fe5221fa817dp16f221jsnac8a17d70d0d',
-    'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
+    'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com', 
+   
   }
 };
 
 try {
 	const response = await axios.request(options);
-	console.log(response.data.slice(0, 12));
+	 return response.data
 } catch (error) {
 	console.error(error);
 }
    
 }
+function  randomPick (){
+  const randomData=[]
+  const allData= fecthGamesData('https://www.freetogame.com/api/games')
+
+  const selceted= allData[Math.floor(Math.random()*allData.length)]
+  //console.log(selceted)
+  
+  for (let i= 0; i< 12; i++ ){
+
+
+  }
+
+
+}
 
 
 useEffect(()=>{
+//.slice(0, 12)
 
-  fecthGamesData();
+randomPick();
+ 
+setRelevanceData(fecthGamesData('https://www.freetogame.com/api/games?sort-by=relevance'))
+//setPopularityData(fecthGamesData('https://www.freetogame.com/api/games?sort-by=popularity'))
+//setPcData(fecthGamesData('https://www.freetogame.com/api/games?platform=pc'))
+//setBroswerData(fecthGamesData('https://www.freetogame.com/api/games?platform=browser'))
+console.log(relevanceData)
+
 },[]);
 
 
