@@ -20,7 +20,7 @@ function Recommend({image}) {
      <div className="h-full md:h-[24rem] w-full flex  flex-col  md:flex-row pt-3">
         <div className="w-full md:w-[62%]  h-full flex">
             {/*  where  image or gerne will display */}
-            <img src={image} alt=""  className="object-cover w-full"/>
+            <img src="http://dummyimage.com/107x100.png/cc0000/ffffff0" alt=""  className="object-cover w-full"/>
         </div>
         <div className="bg-[#0f1922] h-full w-full md:w-[38%] flex flex-col justify-between  ">
             <div className="  flex flex-col  items-center">
