@@ -4,69 +4,49 @@ import SpecialOffers from "./Components/SpecialOffers";
 import BackgroundEfffect from "./Components/BackgroundEfffect";
 import Slider from "./UI/Slider";
 import  react,{ useEffect, useState } from "react";
-import axios from "axios";
+import  gameData  from "./data/videogame_DATA.json"
 
 
 
-
+// the  api  didn't work 'https://www.freetogame.com/api/games'
 
 function App() {
-  const [randomData, setrandomData] =useState(null)
-   const [relevanceData, setRelevanceData] =useState(null)
+  const [randomData, setRandomData] =useState(null)
+   const [underTenData, setUnderTenData,] =useState(null)
    const [popularityData, setPopularityData] =useState(null)
    const [categoryData, setCategoryData] =useState(null)
    const [pcData, setPcData] =useState(null) 
    const [broswerData, setBroswerData] =useState(null) 
 
-   async function fecthGamesData (link){
+
+function  randomPick (array){
+  const selceted= gameData[Math.floor(Math.random()*gameData.length)]
+  const sameCopy= array.find((item) => item.id=== selceted.id)
+if(sameCopy){
+   randomPick(array)
+}
+return selceted
+}
+function randomArray (num){
+  const newData=[]
   
+  for(let i=0; i < num; i++){
+    const currentItem =randomPick(newData)
 
-const options = {
-  method: 'GET',
-  url: link ,
-  headers: {
-    'X-RapidAPI-Key': 'b1d55a6708mshf76fe5221fa817dp16f221jsnac8a17d70d0d',
-    'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com', 
-   
-  }
-};
+      newData.push(currentItem)
 
-try {
-	const response = await axios.request(options);
-	 return response.data
-} catch (error) {
-	console.error(error);
-}
-   
-}
-function  randomPick (){
-  const randomData=[]
-  const allData= fecthGamesData('https://www.freetogame.com/api/games')
-
-  const selceted= allData[Math.floor(Math.random()*allData.length)]
-  //console.log(selceted)
+   }
   
-  for (let i= 0; i< 12; i++ ){
-
-
-  }
-
+return newData
 
 }
 
 
-useEffect(()=>{
-//.slice(0, 12)
+useEffect(() => {
+  setRandomData(randomArray(12));
+   console.log(randomData)
+}, [])
 
-randomPick();
- 
-setRelevanceData(fecthGamesData('https://www.freetogame.com/api/games?sort-by=relevance'))
-//setPopularityData(fecthGamesData('https://www.freetogame.com/api/games?sort-by=popularity'))
-//setPcData(fecthGamesData('https://www.freetogame.com/api/games?platform=pc'))
-//setBroswerData(fecthGamesData('https://www.freetogame.com/api/games?platform=browser'))
-console.log(relevanceData)
-
-},[]);
 
 
   return (
@@ -98,8 +78,10 @@ console.log(relevanceData)
         
           </div>
 
+          {/* Recommend  */}
          <div className=' mt-[0.2rem] text-white text-[14px]'>
-          <Slider section="Features" />
+          <Slider section="Recommend" data={randomData} />
+          
          </div>
         
            {/*  SpecialOffers  */ }

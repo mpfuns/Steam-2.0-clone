@@ -4,12 +4,8 @@ import {RxDotFilled} from 'react-icons/rx';
 import Recommend from './Recommend';
 
 
-const Slider = ({ section}) => {
-    const cards=[{wallpaper:"https://images.unsplash.com/photo-1593277992013-05e17a5f417d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" , title:"Gaming Room"},
-    {wallpaper:"https://images.unsplash.com/photo-1566577134770-3d85bb3a9cc4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" , title:"Gaming Room 1"},
-    {wallpaper: "https://images.unsplash.com/photo-1585857188938-2f7ae5afb6f8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" , title:"Gaming Room 2"},
-    
-    ]
+const Slider = ({ section, data}) => {
+
     const  [currentIndex, setCurrentIndex] = useState(0);
    
     const [ autoPlay,  setAutoPlay] = useState(true)
@@ -25,12 +21,12 @@ const Slider = ({ section}) => {
 
     const  prevSlide = () => {
          const  isFirstSlide= currentIndex=== 0
-          const newIndex= isFirstSlide? cards.length -1 : currentIndex -1;
+          const newIndex= isFirstSlide? data.length -1 : currentIndex -1;
 
            setCurrentIndex(newIndex)
     }
     const  nextSlide = () => {
-        const  isLastSlide= currentIndex=== cards.length-1
+        const  isLastSlide= currentIndex=== data?.length-1
         const newIndex= isLastSlide? 0 : currentIndex +1;
 
          setCurrentIndex(newIndex)
@@ -42,7 +38,7 @@ const Slider = ({ section}) => {
   return (
     <div className='max-w-[1400px] w-full m-auto py-16 px-4 relative'>
          {/*title */}
-         <p>NEW GAMES</p>
+         <p>{section}</p>
         <div  className='w-full h-full  rounded-2xl bg-center' 
         onMouseEnter={()=>{
             setAutoPlay(false);
@@ -57,7 +53,9 @@ const Slider = ({ section}) => {
         {/* Content */}
 
         <div className='relative mx-[4rem]'>
-        <Recommend  image={cards[currentIndex].wallpaper}  />
+
+
+        {data ?<Recommend key={data[currentIndex].id} image={data[currentIndex].main_thumbnail} data={data[currentIndex]} />: <div className="h-[24rem] "></div>}
 
         </div>
 
@@ -71,11 +69,15 @@ const Slider = ({ section}) => {
 
         </div>
         <div className='flex top-4 justify-center py-2'>
-            { cards.map((card, cardIndex) => (
-                <div  style={{opacity:cardIndex=== currentIndex? "1" :"0.5", transition: "opacity 1s" }}  key={cardIndex} onClick={()=> goToSlide(cardIndex)} className='text-2xl cursor-pointer'>
+            {data? (data.map((data, dataIndex) => (
+                <div  style={{opacity:dataIndex=== currentIndex? "1" :"0.5", transition: "opacity 1s" }}  key={dataIndex} onClick={()=> goToSlide(dataIndex)} className='text-2xl cursor-pointer'>
                     <RxDotFilled size={40} />
                      </div>
-            ))}
+            ))) :  ( new Array(10).map((_, dataIndex) => (
+                <div  style={{opacity:dataIndex=== currentIndex? "1" :"0.5", transition: "opacity 1s" }}  key={dataIndex} onClick={()=> goToSlide(dataIndex)} className='text-2xl cursor-pointer'>
+                    <RxDotFilled size={40} />
+                     </div>
+            )))}
         </div>
     </div>
   )
