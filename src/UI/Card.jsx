@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Card({wallpaper,  title}) {
+function Card({image,  title}) {
   return (
-    <div className=''>
-      <img src={wallpaper} alt="" />
+    <div className=' ml-4'>
+      <img src={image} alt="" />
       <div className="bg-blue-800 h-[8rem]" >
         <p className='text-[20px] text-white pl-4 pt-2'>  Special Deal </p>
         <p className='text-[12px] text-white pl-4 pt-2'> offer ending in 2 days</p>

@@ -2,9 +2,10 @@ import React, {useState, useEffect} from 'react';
 import  {BsChevronLeft, BsChevronRight} from  "react-icons/bs";
 import {RxDotFilled} from 'react-icons/rx';
 import Recommend from './Recommend';
+import SpecialOffers from './SpecialOffers';
 
 
-const Slider = ({ section, data}) => {
+const Slider = ({ section, data, numDots}) => {
 
     const  [currentIndex, setCurrentIndex] = useState(0);
    
@@ -14,19 +15,23 @@ const Slider = ({ section, data}) => {
 
 
  useEffect(() => {
-    timeOut=autoPlay && setTimeout(() =>{ nextSlide();}, 2500)
+
+    if( section=== "Recommend"){
+        timeOut=autoPlay && setTimeout(() =>{ nextSlide();}, 2500)
+    }
+    
  })
 
 
 
     const  prevSlide = () => {
          const  isFirstSlide= currentIndex=== 0
-          const newIndex= isFirstSlide? data.length -1 : currentIndex -1;
+          const newIndex= isFirstSlide?  numDots-1 : currentIndex -1;
 
            setCurrentIndex(newIndex)
     }
     const  nextSlide = () => {
-        const  isLastSlide= currentIndex=== data?.length-1
+        const  isLastSlide= currentIndex=== numDots-1
         const newIndex= isLastSlide? 0 : currentIndex +1;
 
          setCurrentIndex(newIndex)
@@ -54,8 +59,10 @@ const Slider = ({ section, data}) => {
 
         <div className='relative mx-[4rem]'>
 
+        {section ==="Recommend" && data ? (<Recommend key={data[currentIndex].id} image={data[currentIndex].main_thumbnail} data={data[currentIndex]} />):section!=="Discount Games"? (<div className="h-[24rem] "></div>) : (<></>)}
 
-        {data ?<Recommend key={data[currentIndex].id} image={data[currentIndex].main_thumbnail} data={data[currentIndex]} />: <div className="h-[24rem] "></div>}
+        {section ==="Discount Games" && data ? (<SpecialOffers key={currentIndex}  data={data} numDots={numDots}/>): section!=="Recommend"? (<div className="h-[24rem] "></div>) : (<></>)}
+
 
         </div>
 
@@ -69,11 +76,7 @@ const Slider = ({ section, data}) => {
 
         </div>
         <div className='flex top-4 justify-center py-2'>
-            {data? (data.map((data, dataIndex) => (
-                <div  style={{opacity:dataIndex=== currentIndex? "1" :"0.5", transition: "opacity 1s" }}  key={dataIndex} onClick={()=> goToSlide(dataIndex)} className='text-2xl cursor-pointer'>
-                    <RxDotFilled size={40} />
-                     </div>
-            ))) :  ( new Array(10).map((_, dataIndex) => (
+            { (new Array(numDots).fill(0).map((_, dataIndex) => (
                 <div  style={{opacity:dataIndex=== currentIndex? "1" :"0.5", transition: "opacity 1s" }}  key={dataIndex} onClick={()=> goToSlide(dataIndex)} className='text-2xl cursor-pointer'>
                     <RxDotFilled size={40} />
                      </div>

@@ -1,6 +1,6 @@
 import Navbar from "./Components/Navbar";
 import Categories from "./Components/Categories";
-import SpecialOffers from "./Components/SpecialOffers";
+import SpecialOffers from "./UI/SpecialOffers";
 import BackgroundEfffect from "./Components/BackgroundEfffect";
 import Slider from "./UI/Slider";
 import  react,{ useEffect, useState } from "react";
@@ -44,7 +44,7 @@ return newData
 
 useEffect(() => {
   setRandomData(randomArray(12));
-   console.log(randomData)
+   
 }, [])
 
 
@@ -80,12 +80,15 @@ useEffect(() => {
 
           {/* Recommend  */}
          <div className=' mt-[0.2rem] text-white text-[14px]'>
-          <Slider section="Recommend" data={randomData} />
+          <Slider section="Recommend" data={randomData} numDots={12}/>
           
          </div>
-        
-           {/*  SpecialOffers  */ }
-        <SpecialOffers />
+        {/* Special offers  */}
+         <div className=' mt-[0.2rem] text-white text-[14px]'>
+          <Slider section="Discount Games" data={randomData} numDots={4}/>
+          
+         </div>
+       
            </div>
       
       {/*Browse */ }
