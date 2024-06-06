@@ -10,7 +10,7 @@ const Slider = ({ section, data, numDots}) => {
     const  [currentIndex, setCurrentIndex] = useState(0);
     const [ autoPlay,  setAutoPlay] = useState(true)
     let timeOut= null;
-    const [firstNum, setFirstNum]= useState(-1)
+    const [firstNum, setFirstNum]= useState(0)
     const [endNum, setEndNum]= useState(numDots)
 
 
@@ -29,22 +29,33 @@ const Slider = ({ section, data, numDots}) => {
          const  isFirstSlide= currentIndex=== 0
           const newIndex= isFirstSlide?  numDots-1 : currentIndex -1;
           /* slice (newStart,newEnd) */
-          const newStart=  isFirstSlide? data.lenght- numDots: (newIndex*numDots)-1
-        const newEnd= isFirstSlide?(numDots*newIndex)+numDots: (numDots*newIndex)-1
-           setCurrentIndex(newIndex)
+          const newStart=  isFirstSlide? data.lenght- numDots: (newIndex*numDots)
+        const newEnd= ((numDots*newIndex)+numDots)
+
+           
+        setCurrentIndex(newIndex)
+           setFirstNum(newStart)
+           setEndNum(newEnd)
     }
     const  nextSlide = () => {
          /* add 4 from end number */
         const  isLastSlide= currentIndex=== numDots-1
         const newIndex= isLastSlide? 0 : currentIndex +1;
-        const newStart=  isLastSlide? -1: (numDots*newIndex)-1
-        const newEnd= isLastSlide?(numDots*newIndex)+numDots: (numDots*newIndex)-1
+        const newStart=  isLastSlide? 0: (numDots*newIndex)
+        const newEnd= ((numDots*newIndex)+numDots)
 
-
-         setCurrentIndex(newIndex)
+       
+        setFirstNum(newStart)
+        setEndNum(newEnd)
+        setCurrentIndex(newIndex)
     }
      const goToSlide = (slideIndex) =>{
         setCurrentIndex(slideIndex)
+        const newStart=  (numDots* slideIndex)
+        const newEnd= ((numDots*slideIndex)+numDots)
+       
+        setFirstNum(newStart)
+        setEndNum(newEnd)
      }
 
   return (
@@ -68,7 +79,7 @@ const Slider = ({ section, data, numDots}) => {
 
         {section ==="Recommend" && data ? (<Recommend key={data[currentIndex].id} image={data[currentIndex].main_thumbnail} data={data[currentIndex]} />):section!=="Discount Games"? (<div className="h-[24rem] "></div>) : (<></>)}
 
-        {section ==="Discount Games" && data ? (<SpecialOffers key={currentIndex}  data={data} numDots={numDots} firstNum={currentIndex* numDots} endNum={4}/>): section!=="Recommend"? (<div className="h-[24rem] "></div>) : (<></>)}
+        {section ==="Discount Games" && data ? (<SpecialOffers key={currentIndex}  data={data} numDots={numDots} firstNum={firstNum} endNum={endNum}/>): section!=="Recommend"? (<div className="h-[24rem] "></div>) : (<></>)}
 
 
         </div>

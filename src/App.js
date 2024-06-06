@@ -17,7 +17,7 @@ function App() {
    const [categoryData, setCategoryData] =useState(null)
    const [pcData, setPcData] =useState(null) 
    const [broswerData, setBroswerData] =useState(null) 
-
+   const [discountData, setDiscountData] =useState(null) 
 
 function  randomPick (array){
   const selceted= gameData[Math.floor(Math.random()*gameData.length)]
@@ -44,6 +44,8 @@ return newData
 
 useEffect(() => {
   setRandomData(randomArray(12));
+    setDiscountData( gameData.filter(game=> game.price_discount !== null && game.price_discount !== 0).slice(0,16))
+
    
 }, [])
 
@@ -85,7 +87,7 @@ useEffect(() => {
          </div>
         {/* Special offers  */}
          <div className=' mt-[0.2rem] text-white text-[14px]'>
-          <Slider section="Discount Games" data={randomData} numDots={4}/>
+          <Slider section="Discount Games" data={discountData} numDots={4}/>
           
          </div>
        
