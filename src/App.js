@@ -2,9 +2,10 @@ import Navbar from "./Components/Navbar";
 import Categories from "./Components/Categories";
 import SpecialOffers from "./UI/SpecialOffers";
 import BackgroundEfffect from "./Components/BackgroundEfffect";
-import Slider from "./UI/Slider";
+import Slider from "./Components/Slider";
 import  react,{ useEffect, useState } from "react";
-import  gameData  from "./data/videogame_DATA.json"
+import  gameData  from "./data/videogame_DATA.json"; 
+import  categoryData from "./data/genre_Data.json"
 
 
 
@@ -44,7 +45,8 @@ return newData
 
 useEffect(() => {
   setRandomData(randomArray(12));
-    setDiscountData( gameData.filter(game=> game.price_discount !== null && game.price_discount !== 0).slice(0,16))
+  setDiscountData(gameData.filter(game=> game.price_discount !== null && game.price_discount !== 0).slice(0,20))
+  setCategoryData(categoryData)
 
    
 }, [])
@@ -87,11 +89,15 @@ useEffect(() => {
          </div>
         {/* Special offers  */}
          <div className=' mt-[0.2rem] text-white text-[14px]'>
-          <Slider section="Discount Games" data={discountData} numDots={4}/>
+          <Slider section="Discount Games" data={discountData} numDots={4} numCards={5}/>
+         </div>
+          {/*  Categorites card slider */}
+          <div className=' mt-[0.2rem] text-white text-[14px]'>
+          <Slider section="Search by Category" data={categoryData} numDots={4} numCards={4}/>
           
          </div>
        
-           </div>
+      </div>
       
       {/*Browse */ }
       {/* Footer  */ }

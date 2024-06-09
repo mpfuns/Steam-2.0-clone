@@ -7,8 +7,8 @@ function Card({image, title, percent, price, days }) {
   
   
   return (
-    <div className=' ml-4 max-w-44'>
-      <div className='h-[8rem]'>
+    <div className=' ml-4 max-w-50'>
+      <div className='h-[8rem] w-full'>
       <img src={image} alt=""  className=' object-fit w-full h-full'/>
       </div>
 

@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import  {BsChevronLeft, BsChevronRight} from  "react-icons/bs";
 import {RxDotFilled} from 'react-icons/rx';
-import Recommend from './Recommend';
-import SpecialOffers from './SpecialOffers';
+import Recommend from '../UI/Recommend';
+import SpecialOffers from '../UI/SpecialOffers';
+import CategoryGroup from '../UI/CategoryGroup';
 
 
-const Slider = ({ section, data, numDots}) => {
+const Slider = ({ section, data, numDots, numCards}) => {
 
     const  [currentIndex, setCurrentIndex] = useState(0);
     const [ autoPlay,  setAutoPlay] = useState(true)
@@ -27,10 +28,10 @@ const Slider = ({ section, data, numDots}) => {
     const  prevSlide = () => {
         /* subart 4 from end number */
          const  isFirstSlide= currentIndex=== 0
-          const newIndex= isFirstSlide?  numDots-1 : currentIndex -1;
+          const newIndex= isFirstSlide?  numCards-1 : currentIndex -1;
           /* slice (newStart,newEnd) */
-          const newStart=  isFirstSlide? data.lenght- numDots: (newIndex*numDots)
-        const newEnd= ((numDots*newIndex)+numDots)
+          const newStart=  isFirstSlide? data.lenght- numCards: (newIndex*numCards)
+        const newEnd= ((numCards*newIndex)+numCards)
 
            
         setCurrentIndex(newIndex)
@@ -41,8 +42,8 @@ const Slider = ({ section, data, numDots}) => {
          /* add 4 from end number */
         const  isLastSlide= currentIndex=== numDots-1
         const newIndex= isLastSlide? 0 : currentIndex +1;
-        const newStart=  isLastSlide? 0: (numDots*newIndex)
-        const newEnd= ((numDots*newIndex)+numDots)
+        const newStart=  isLastSlide? 0: (numCards*newIndex)
+        const newEnd= ((numCards*newIndex)+numCards)
 
        
         setFirstNum(newStart)
@@ -51,8 +52,8 @@ const Slider = ({ section, data, numDots}) => {
     }
      const goToSlide = (slideIndex) =>{
         setCurrentIndex(slideIndex)
-        const newStart=  (numDots* slideIndex)
-        const newEnd= ((numDots*slideIndex)+numDots)
+        const newStart=  (numCards* slideIndex)
+        const newEnd= ((numCards*slideIndex)+numCards)
        
         setFirstNum(newStart)
         setEndNum(newEnd)
@@ -77,10 +78,11 @@ const Slider = ({ section, data, numDots}) => {
 
         <div className='relative mx-[4rem]'>
 
-        {section ==="Recommend" && data ? (<Recommend key={data[currentIndex].id} image={data[currentIndex].main_thumbnail} data={data[currentIndex]} />):section!=="Discount Games"? (<div className="h-[24rem] "></div>) : (<></>)}
+        {section ==="Recommend" && data ? (<Recommend key={data[currentIndex].id} image={data[currentIndex].main_thumbnail} data={data[currentIndex]} />):section!=="Discount Games" && section!=="Search by Category"  ? (<div className="h-[24rem] "></div>) : (<></>)}
 
-        {section ==="Discount Games" && data ? (<SpecialOffers key={currentIndex}  data={data} numDots={numDots} firstNum={firstNum} endNum={endNum}/>): section!=="Recommend"? (<div className="h-[24rem] "></div>) : (<></>)}
+        {section ==="Discount Games" && data ? (<SpecialOffers key={currentIndex}  data={data} numDots={numDots} firstNum={firstNum} endNum={endNum}/>): section!=="Recommend" && section!=="Search by Category" ? (<div className="h-[24rem] "></div>) : (<></>)}
 
+        {section ==="Search by Category" && data ? (<CategoryGroup key={currentIndex}  data={data} numDots={numDots} firstNum={firstNum} endNum={endNum}/>): section!=="Recommend" && section!=="Discount Games" ? (<div className="h-[24rem] "></div>) : (<></>)}
 
         </div>
 
