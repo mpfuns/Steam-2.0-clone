@@ -5,7 +5,7 @@ import BackgroundEfffect from "./Components/BackgroundEfffect";
 import Slider from "./Components/Slider";
 import  react,{ useEffect, useState } from "react";
 import  gameData  from "./data/videogame_DATA.json"; 
-import  categoryData from "./data/genre_Data.json"
+import  category from "./data/genre_Data.json"
 
 
 
@@ -46,8 +46,8 @@ return newData
 useEffect(() => {
   setRandomData(randomArray(12));
   setDiscountData(gameData.filter(game=> game.price_discount !== null && game.price_discount !== 0).slice(0,20))
-  setCategoryData(categoryData)
-
+  setCategoryData(category)
+  setUnderTenData(gameData.filter(game=> game.price_full <10).slice(0,40))
    
 }, [])
 
@@ -93,13 +93,25 @@ useEffect(() => {
          </div>
           {/*  Categorites card slider */}
           <div className=' mt-[0.2rem] text-white text-[14px]'>
-          <Slider section="Search by Category" data={categoryData} numDots={4} numCards={4}/>
-          
-         </div>
+          <Slider section="Search by Category" data={categoryData} numDots={4} numCards={4}/> 
+          </div>
+        {/* ads */}
+
+    {/* personalized recommendtions content*/}
+
+
+    {/* Buttons */}
+
+    {/* Under $10  slider*/}
+
+
+    {/* tabs */}
+
+    {/* ads */}
        
       </div>
       
-      {/*Browse */ }
+      {/*personalized recommendtions footer */ }
       {/* Footer  */ }
       <div  className="h-screen"></div>
     </div>

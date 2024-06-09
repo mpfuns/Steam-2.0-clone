@@ -3,7 +3,7 @@ import  {BsChevronLeft, BsChevronRight} from  "react-icons/bs";
 import {RxDotFilled} from 'react-icons/rx';
 import Recommend from '../UI/Recommend';
 import SpecialOffers from '../UI/SpecialOffers';
-import CategoryGroup from '../UI/CategoryGroup';
+
 
 
 const Slider = ({ section, data, numDots, numCards}) => {
@@ -12,7 +12,7 @@ const Slider = ({ section, data, numDots, numCards}) => {
     const [ autoPlay,  setAutoPlay] = useState(true)
     let timeOut= null;
     const [firstNum, setFirstNum]= useState(0)
-    const [endNum, setEndNum]= useState(numDots)
+    const [endNum, setEndNum]= useState(numCards)
 
 
  useEffect(() => {
@@ -80,9 +80,10 @@ const Slider = ({ section, data, numDots, numCards}) => {
 
         {section ==="Recommend" && data ? (<Recommend key={data[currentIndex].id} image={data[currentIndex].main_thumbnail} data={data[currentIndex]} />):section!=="Discount Games" && section!=="Search by Category"  ? (<div className="h-[24rem] "></div>) : (<></>)}
 
-        {section ==="Discount Games" && data ? (<SpecialOffers key={currentIndex}  data={data} numDots={numDots} firstNum={firstNum} endNum={endNum}/>): section!=="Recommend" && section!=="Search by Category" ? (<div className="h-[24rem] "></div>) : (<></>)}
+        {section ==="Discount Games"  && data ? (<SpecialOffers key={currentIndex}  data={data} numDots={numDots} firstNum={firstNum} endNum={endNum} type="discount" />): section!=="Recommend" && section!=="Search by Category" ? (<div className="h-[24rem] "></div>) : (<></>)}
 
-        {section ==="Search by Category" && data ? (<CategoryGroup key={currentIndex}  data={data} numDots={numDots} firstNum={firstNum} endNum={endNum}/>): section!=="Recommend" && section!=="Discount Games" ? (<div className="h-[24rem] "></div>) : (<></>)}
+        {section ==="Search by Category"  && data ? (<SpecialOffers key={currentIndex}  data={data} numDots={numDots} firstNum={firstNum} endNum={endNum} type="category"/>): section!=="Recommend" && section!=="Discount Games" ? (<div className="h-[24rem] "></div>) : (<></>)}
+        
 
         </div>
 

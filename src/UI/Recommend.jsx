@@ -24,7 +24,7 @@ function Recommend({image, key, data}) {
         className=' '
        
     > 
-        {moreInfo && (<div  
+        {moreInfo && (<motion.div  
         initial={{opacity:0}}
         animate={{opacity:1}}
         exit={{opacity:0}}
@@ -39,7 +39,7 @@ function Recommend({image, key, data}) {
     
             <div className='text-black italic font-bold'>Rating:({data.rating}/10)</div>
             <div className='text-black'> Developer:{data.developer} | Publisher: {data.publisher}</div>
-            </div></div>)}
+            </div></motion.div>)}
     
      {/* Feature  */}
      <div className="h-full md:h-[24rem] w-full flex  flex-col  md:flex-row pt-3"  onMouseOver={()=> setMoreInfo(true)}
