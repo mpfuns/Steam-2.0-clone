@@ -47,7 +47,7 @@ useEffect(() => {
   setRandomData(randomArray(12));
   setDiscountData(gameData.filter(game=> game.price_discount !== null && game.price_discount !== 0).slice(0,20))
   setCategoryData(category)
-  setUnderTenData(gameData.filter(game=> game.price_full <10).slice(0,40))
+  setUnderTenData(gameData.filter(game=> game.price_full <10 || (game.price_full-((game.price_discount-game.price_full)/100))<10 ).slice(0,40))
    
 }, [])
 
@@ -103,7 +103,9 @@ useEffect(() => {
     {/* Buttons */}
 
     {/* Under $10  slider*/}
-
+    <div className=' mt-[0.2rem] text-white text-[14px]'>
+          <Slider section="Below $10" data={underTenData} numDots={5} numCards={4}/> 
+          </div>
 
     {/* tabs */}
 

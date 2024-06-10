@@ -34,8 +34,8 @@ function Card({image, title, percent, price, days, type, data,key}) {
         <div className="bg-[#1F7499] h-[8rem] w-full" >
           
         <div className='flex'>
-        <p className='text-[15px]  text-gray-600 pl-4 pt-2 line-through'>${price.toFixed(2)} </p>
-        <p className='text-[20px] text-white pl-4 pt-2'>${priceAfterDiscount} </p>
+        <p className='text-[15px]  text-gray-600 pl-4 pt-2 line-through'>${price === 0? "Free" : `$${price.toFixed(2)}`} </p>
+        <p className='text-[20px] text-white pl-4 pt-2'>${priceAfterDiscount === 0? "Free" :  priceAfterDiscount} </p>
         </div>
         
           <p className='text-[12px] text-white pl-4 pt-2'> offer ending in {days} days</p>
@@ -60,7 +60,26 @@ function Card({image, title, percent, price, days, type, data,key}) {
         </motion.div>
         
         )}
+           { type=== "$10" && (
+          <motion.div whileHover={{scale:1.2, filter: "brightness(0.8)" }}>
+          <div className='h-full '>
+
+
+
+          <div className='bg-[#1F7499] w-full'>
+          {sale? 
+          (<div className='flex '>
+          <p>-{percent}%</p>
+          <p>${price}</p>
+          <p>${priceAfterDiscount}</p>
+          </div>)
+          :(<div>{price === 0? "Free" : `$${price.toFixed(2)}`}</div>)}
+          </div>
+        </div>
+
+        </motion.div>
         
+        )}
      
         
       

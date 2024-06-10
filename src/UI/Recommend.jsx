@@ -80,9 +80,9 @@ function Recommend({image, key, data}) {
                {sale? (<div className='flex'>
                     <div className=' bg-green-700 text-green-300 px-1 font-semibold'>{data.price_discount}%</div>
                     <div className='px-1 line-through bg-gray-500'>${price}</div>
-                    <div className='px-1  bg-gray-500 text-green-300 font-bold '>${priceAfterDiscount}</div>
+                    <div className='px-1  bg-gray-500 text-green-300 font-bold '>${priceAfterDiscount === 0? "Free" :  priceAfterDiscount}</div>
                </div>)  
-               : (<p className='text-[20px]  md:text-[12px]'>${priceAfterDiscount} </p>)}  
+               : (<p className='text-[20px]  md:text-[12px]'>${price === 0? "Free" : price} </p>)}  
                 
             </div>
             <TbAppsFilled  className='text-[26px] md:text-[20px]  mb-[10px] cursor-not-allowed'/>
