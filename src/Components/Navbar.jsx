@@ -41,7 +41,7 @@ const Navbar = () => {
     {/* Right */}
           <div className="absolute  text-white right-10 top-0 text-[12px]  lg:flex items-center mt-2  hidden">
         
-            <div className="flex items-center bg-[#5C7E10] px-2 py-1 mt-2 rounded-[0.3rem]  flex items-center">
+            <div className="flex items-center bg-[#5C7E10] px-2 py-1 mt-2 rounded-[0.3rem]">
             <GoDesktopDownload  className='mr-2'/>
               <p className=''>Download App</p>
             </div>

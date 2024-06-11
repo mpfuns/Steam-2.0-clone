@@ -20,6 +20,9 @@ function App() {
    const [pcData, setPcData] =useState(null) 
    const [broswerData, setBroswerData] =useState(null) 
    const [discountData, setDiscountData] =useState(null) 
+   const [currentGames, setCurrentGames] =useState(null)
+  const  sortGame= gameData.sort((a,b)=> Date.parse(a.release_date) > Date.parse(b.release_date)? -1: 1)
+  const [activedTabsData, setActivedTabsData] = useState(null)
 
 function  randomPick (array){
   const selceted= gameData[Math.floor(Math.random()*gameData.length)]
@@ -49,8 +52,32 @@ useEffect(() => {
   setDiscountData(gameData.filter(game=> game.price_discount !== null && game.price_discount !== 0).slice(0,20))
   setCategoryData(category)
   setUnderTenData(gameData.filter(game=> game.price_full <10 || (game.price_full-((game.price_discount-game.price_full)/100))<10 ).slice(0,40))
-   
+  setPopularityData(gameData.filter(game=> game.rating <=10 && game.rating >=8).slice(0,10))
+  setBroswerData(gameData.filter(game=> game.platform ==="Broswer").slice(0,10))
+  setPcData(gameData.filter(game=> game.platform ==="PC").slice(0,10))
+  setCurrentGames(sortGame.slice(0,10))
+ setActivedTabsData(currentGames)
 }, [])
+
+
+function changeData(name){
+
+if (name ==="Release"){
+  setActivedTabsData(currentGames)
+}
+else if( name==="Popular"){
+  setActivedTabsData(popularityData)
+}
+else  if( name==='Browser'){
+  setActivedTabsData(broswerData)
+} 
+else{
+  setActivedTabsData(pcData)
+}
+
+
+}
+
 
 
 
@@ -109,7 +136,7 @@ useEffect(() => {
           </div>
 
     {/* tabs */}
-<Table />
+<Table  changeData={changeData} activedTabsData={activedTabsData} />
 
 
 

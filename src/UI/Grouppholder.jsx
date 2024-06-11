@@ -18,15 +18,15 @@ function GroupHolder({key, data, numDots, firstNum, endNum, type}) {
 useEffect(() => {
 
  setCards(updateData)
- console.log(`starr:${firstNum} end: ${endNum}`)
- console.log(updateData)
+ //console.log(`starr:${firstNum} end: ${endNum}`)
+ //console.log(updateData)
  
 
 }, [ firstNum, endNum])
 
 
   return (
-    <div className=' mt-1'>
+    <div className=' mt-1' key={type} >
             <div className="flex place-content-between">
               {cards.map((item)=>(<Card image={item.main_thumbnail} title={item.game_title} percent={item.price_discount} price={item.price_full} days={item.days} type={type} data={item} key={key} />))}
                

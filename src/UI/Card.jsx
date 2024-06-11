@@ -76,7 +76,7 @@ function Card({image, title, percent, price, days, type, data,key}) {
        {sale? 
           (<div className='flex bg-[#295b72] gap-2 pr-1  '>
           <p className=' bg-[#5C7E10] px-1'>-{percent}%</p>
-          <p className=' line-through text-gray-300'>${price}</p>
+          <p className=' line-through text-gray-300'>${price.toFixed(2)}</p>
           <p >${priceAfterDiscount}</p>
      
           
