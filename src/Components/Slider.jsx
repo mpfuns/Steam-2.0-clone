@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import  {BsChevronLeft, BsChevronRight} from  "react-icons/bs";
 import {RxDotFilled} from 'react-icons/rx';
 import Recommend from '../UI/Recommend';
-import SpecialOffers from '../UI/SpecialOffers';
+import GroupHolder from '../UI/Grouppholder';
 
 
 
@@ -80,11 +80,11 @@ const Slider = ({ section, data, numDots, numCards}) => {
 
         {section ==="Recommend" && data ? (<Recommend key={data[currentIndex].id} image={data[currentIndex].main_thumbnail} data={data[currentIndex]} />):section!=="Discount Games" && section!=="Search by Category" && section !=="Below $10"  ? (<div className="h-[24rem] "></div>) : (<></>)}
 
-        {section ==="Discount Games"  && data ? (<SpecialOffers key={currentIndex}  data={data} numDots={numDots} firstNum={firstNum} endNum={endNum} type="discount" />): section!=="Recommend" && section!=="Search by Category" && section !=="Below $10" ? (<div className="h-[24rem] "></div>) : (<></>)}
+        {section ==="Discount Games"  && data ? (<GroupHolder key={currentIndex}  data={data} numDots={numDots} firstNum={firstNum} endNum={endNum} type="discount" />): section!=="Recommend" && section!=="Search by Category" && section !=="Below $10" ? (<div className="h-[24rem] "></div>) : (<></>)}
 
-        {section ==="Search by Category"  && data ? (<SpecialOffers key={currentIndex}  data={data} numDots={numDots} firstNum={firstNum} endNum={endNum} type="category"/>): section!=="Recommend" && section!=="Discount Games"&& section !=="Below $10" ? (<div className="h-[24rem] "></div>) : (<></>)}
+        {section ==="Search by Category"  && data ? (<GroupHolder key={currentIndex}  data={data} numDots={numDots} firstNum={firstNum} endNum={endNum} type="category"/>): section!=="Recommend" && section!=="Discount Games"&& section !=="Below $10" ? (<div className="h-[24rem] "></div>) : (<></>)}
         
-        {section ==="Below $10"  && data ? (<SpecialOffers key={currentIndex}  data={data} numDots={numDots} firstNum={firstNum} endNum={endNum} type="$10"/>): section!=="Recommend" && section!=="Discount Games" && section!=="Search by Category"? (<div className="h-[24rem] "></div>) : (<></>)}
+        {section ==="Below $10"  && data ? (<GroupHolder key={currentIndex}  data={data} numDots={numDots} firstNum={firstNum} endNum={endNum} type="$10"/>): section!=="Recommend" && section!=="Discount Games" && section!=="Search by Category"? (<div className="h-[24rem] "></div>) : (<></>)}
 
         </div>
 

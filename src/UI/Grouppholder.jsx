@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Card from './Card';
 import game1 from '../assets/1.jpg'
 import  game2 from '../assets/2.jpg'
-function SpecialOffers({key, data, numDots, firstNum, endNum, type}) {
+function GroupHolder({key, data, numDots, firstNum, endNum, type}) {
    const [cards, setCards]= useState([])
 
    const updateData= data.slice(firstNum,endNum).map((item)=>{ return  {...item, 
@@ -36,4 +36,4 @@ useEffect(() => {
   )
 }
 
-export default SpecialOffers
+export default GroupHolder

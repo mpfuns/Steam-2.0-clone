@@ -23,7 +23,7 @@ function Card({image, title, percent, price, days, type, data,key}) {
     
 
       
-       {type=== "discount" && (
+       {type=== "discount"  && (
        < motion.div 
            className=' '  
            whileHover={{scale:1.2, filter: "brightness(0.8)" }}
@@ -34,8 +34,8 @@ function Card({image, title, percent, price, days, type, data,key}) {
         <div className="bg-[#1F7499] h-[8rem] w-full" >
           
         <div className='flex'>
-        <p className='text-[15px]  text-gray-600 pl-4 pt-2 line-through'>${price === 0? "Free" : `$${price.toFixed(2)}`} </p>
-        <p className='text-[20px] text-white pl-4 pt-2'>${priceAfterDiscount === 0? "Free" :  priceAfterDiscount} </p>
+        <p className='text-[15px]  text-gray-600 pl-4 pt-2 line-through'>{price === 0? "Free" : `$${price.toFixed(2)}`} </p>
+        <p className='text-[20px] text-white pl-4 pt-2'>{priceAfterDiscount === 0? "Free" :  `$${priceAfterDiscount}`} </p>
         </div>
         
           <p className='text-[12px] text-white pl-4 pt-2'> offer ending in {days} days</p>
@@ -60,28 +60,32 @@ function Card({image, title, percent, price, days, type, data,key}) {
         </motion.div>
         
         )}
-           { type=== "$10" && (
-          <motion.div whileHover={{scale:1.2, filter: "brightness(0.8)" }}>
-          <div className='h-full '>
-
-
-
-          <div className='bg-[#1F7499] w-full'>
-          {sale? 
-          (<div className='flex '>
-          <p>-{percent}%</p>
-          <p>${price}</p>
-          <p>${priceAfterDiscount}</p>
-          </div>)
-          :(<div>{price === 0? "Free" : `$${price.toFixed(2)}`}</div>)}
-          </div>
-        </div>
-
-        </motion.div>
-        
-        )}
+           
      
-        
+        {type=== '$10' && (
+          < motion.div 
+          className=' '  
+          whileHover={{scale:1.2, filter: "brightness(0.8)" }}
+      > 
+         <div className='h-[8rem] w-full cursor-not-allowed'>
+         <img src={image} alt=""  className=' object-cover  h-full'/>
+         </div>
+       <div className="bg-[#1F7499] h-[2rem] w-full" >
+         
+       <div className='flex ml-2 '>
+       {sale? 
+          (<div className='flex bg-[#295b72] gap-2 pr-1  '>
+          <p className=' bg-[#5C7E10] px-1'>-{percent}%</p>
+          <p className=' line-through text-gray-300'>${price}</p>
+          <p >${priceAfterDiscount}</p>
+     
+          
+          </div>)
+          :(<div className='bg-[#295b72] px-1'>{price === 0? "Free" : `$${price.toFixed(2)}`}</div>)}
+       </div>
+       </div>
+       </motion.div>
+        )}
       
     </motion.div>
 

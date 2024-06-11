@@ -1,11 +1,12 @@
 import Navbar from "./Components/Navbar";
 import Categories from "./Components/Categories";
-import SpecialOffers from "./UI/SpecialOffers";
+import SpecialOffers from "./UI/Grouppholder";
 import BackgroundEfffect from "./Components/BackgroundEfffect";
 import Slider from "./Components/Slider";
 import  react,{ useEffect, useState } from "react";
 import  gameData  from "./data/videogame_DATA.json"; 
 import  category from "./data/genre_Data.json"
+import Table from "./Components/Table";
 
 
 
@@ -108,6 +109,10 @@ useEffect(() => {
           </div>
 
     {/* tabs */}
+<Table />
+
+
+
 
     {/* ads */}
        
