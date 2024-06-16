@@ -18,8 +18,8 @@ function GroupHolder({key, data, numDots, firstNum, endNum, type}) {
 useEffect(() => {
 
  setCards(updateData)
- //console.log(`starr:${firstNum} end: ${endNum}`)
- //console.log(updateData)
+ console.log(`starr:${firstNum} end: ${endNum}`)
+ console.log(updateData)
  
 
 }, [ firstNum, endNum])

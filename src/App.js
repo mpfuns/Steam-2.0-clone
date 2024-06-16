@@ -121,7 +121,7 @@ else{
          </div>
           {/*  Categorites card slider */}
           <div className=' mt-[0.2rem] text-white text-[14px]'>
-          <Slider section="Search by Category" data={categoryData} numDots={4} numCards={4}/> 
+          <Slider section="Search by Category" data={categoryData} numDots={5} numCards={4}/> 
           </div>
         {/* ads */}
 
@@ -132,7 +132,7 @@ else{
 
     {/* Under $10  slider*/}
     <div className=' mt-[0.2rem] text-white text-[14px]'>
-          <Slider section="Below $10" data={underTenData} numDots={5} numCards={4}/> 
+          <Slider section="Below $10" data={underTenData} numDots={10} numCards={4}/> 
           </div>
 
     {/* tabs */}

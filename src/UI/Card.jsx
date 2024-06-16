@@ -28,8 +28,8 @@ function Card({image, title, percent, price, days, type, data,key}) {
            className=' '  
            whileHover={{scale:1.2, filter: "brightness(0.8)" }}
        > 
-          <div className='h-[8rem] w-full cursor-not-allowed'>
-          <img src={image} alt=""  className=' object-cover  h-full'/>
+          <div className='h-[8rem] max-w-64 cursor-not-allowed'>
+          <img src={image} alt=""  className=' object-cover w-full  h-full'/>
           </div>
         <div className="bg-[#1F7499] h-[8rem] w-full" >
           
@@ -68,7 +68,7 @@ function Card({image, title, percent, price, days, type, data,key}) {
           whileHover={{scale:1.2, filter: "brightness(0.8)" }}
       > 
          <div className='h-[8rem] w-full cursor-not-allowed'>
-         <img src={image} alt=""  className=' object-cover  h-full'/>
+         <img src={image} alt=""  className=' object-cover w-full  h-full'/>
          </div>
        <div className="bg-[#1F7499] h-[2rem] w-full" >
          

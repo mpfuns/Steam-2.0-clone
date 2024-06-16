@@ -28,10 +28,10 @@ const Slider = ({ section, data, numDots, numCards}) => {
     const  prevSlide = () => {
         /* subart 4 from end number */
          const  isFirstSlide= currentIndex=== 0
-          const newIndex= isFirstSlide?  numCards-1 : currentIndex -1;
+          const newIndex= isFirstSlide?  numDots-1 : currentIndex -1;
           /* slice (newStart,newEnd) */
-          const newStart=  isFirstSlide? data.lenght- numCards: (newIndex*numCards)
-        const newEnd= ((numCards*newIndex)+numCards)
+          const newStart=  isFirstSlide? data.length- numCards: (newIndex*numCards)
+        const newEnd= isFirstSlide? data.length :((numCards*newIndex)+numCards)
 
            
         setCurrentIndex(newIndex)
