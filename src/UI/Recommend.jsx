@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { TbAppsFilled } from "react-icons/tb";
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion} from 'framer-motion';
 
 function Recommend({image, key, data}) {
 

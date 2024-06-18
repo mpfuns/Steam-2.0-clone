@@ -1,13 +1,12 @@
 import Navbar from "./Components/Navbar";
 import Categories from "./Components/Categories";
-import SpecialOffers from "./UI/Grouppholder";
 import BackgroundEfffect from "./Components/BackgroundEfffect";
 import Slider from "./Components/Slider";
 import  react,{ useEffect, useState } from "react";
 import  gameData  from "./data/videogame_DATA.json"; 
 import  category from "./data/genre_Data.json"
 import Table from "./Components/Table";
-
+import { motion} from 'framer-motion';
 
 
 // the  api  didn't work 'https://www.freetogame.com/api/games'
@@ -88,7 +87,7 @@ else{
       <div className="lg:max-w-[90vw]  xl:max-w-[80vw]     mx-auto  ">
       
           {/* Categorites */ }
-        <div className=" relative items-center  ">
+        <section className=" relative items-center  ">
             <div className="hidden   md:block">
             <div className="relative mx-[2rem]">
               <Categories />
@@ -108,27 +107,41 @@ else{
          
           <BackgroundEfffect />
         
-          </div>
+          </section>
 
           {/* Recommend  */}
-         <div className=' mt-[0.2rem] text-white text-[14px]'>
+         <section className=' mt-[0.2rem] text-white text-[14px]'>
           <Slider section="Recommend" data={randomData} numDots={12}/>
           
-         </div>
+         </section>
         {/* Special offers  */}
-         <div className=' mt-[0.2rem] text-white text-[14px]'>
+         <section className=' mt-[0.2rem] text-white text-[14px]'>
           <Slider section="Discount Games" data={discountData} numDots={4} numCards={5}/>
-         </div>
+         </section>
           {/*  Categorites card slider */}
-          <div className=' mt-[0.2rem] text-white text-[14px]'>
+          <section className=' mt-[0.2rem] text-white text-[14px]'>
           <Slider section="Search by Category" data={categoryData} numDots={5} numCards={4}/> 
-          </div>
+          </section>
         {/* ads */}
 
     {/* personalized recommendtions content*/}
-
+    <section className=" bg-[rgb(22,32,45)] text-gray-500  text-lg flex flex-col items-center p-10">
+<p>Sign in to view other recommendations</p>
+<button className=" bg-green-700 text-[#B3DC2E] text-xl my-4 p-3 rounded-sm cursor-not-allowed">Sign in</button>
+<p>Or <span className="text-white cursor-not-allowed">Sign up</span>  and join Sink for free</p>
+    </section>
 
     {/* Buttons */}
+    <section className="max-w-[1400px]  w-full m-auto py-16 px-4 text-white">
+      <h3 className="">Browse Sink</h3>
+    <div className="mt-2 grid grid-cols-4 center gap-3">
+      <motion.button whileHover={{scale:0.8, filter: "brightness(1.2)" }} className=" bg-[#0CB2FF] text-center py-6 text-2xl">Free Games</motion.button>
+      <motion.button whileHover={{scale:0.8, filter: "brightness(1.2)" }} className=" bg-[#0CB2FF] text-center py-6 text-2xl">Tags</motion.button>
+      <motion.button whileHover={{scale:0.8, filter: "brightness(1.2)" }} className=" bg-[#0CB2FF] text-center py-6 text-2xl">Xbox</motion.button>
+      <motion.button whileHover={{scale:0.8, filter: "brightness(1.2)" }} className=" bg-[#0CB2FF] text-center py-6 text-2xl">Playstation</motion.button>
+    </div>
+    </section>
+    
 
     {/* Under $10  slider*/}
     <div className=' mt-[0.2rem] text-white text-[14px]'>

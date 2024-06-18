@@ -62,7 +62,7 @@ const Slider = ({ section, data, numDots, numCards}) => {
   return (
     <div className='max-w-[1400px] w-full m-auto py-16 px-4 relative'>
          {/*title */}
-         <p>{section}</p>
+         <h3>{section}</h3>
         <div  className='w-full h-full  rounded-2xl bg-center' 
         onMouseEnter={()=>{
             setAutoPlay(false);
