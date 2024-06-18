@@ -56,7 +56,7 @@ useEffect(() => {
   setBroswerData(gameData.filter(game=> game.platform ==="Broswer").slice(0,10))
   setPcData(gameData.filter(game=> game.platform ==="PC").slice(0,10))
   setCurrentGames(sortGame.slice(0,10))
- setActivedTabsData(currentGames)
+ setActivedTabsData(sortGame.slice(0,10))
 }, [])
 
 
