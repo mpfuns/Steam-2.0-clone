@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { motion} from 'framer-motion';
+import { motion, AnimatePresence} from 'framer-motion';
 function Card({image, title, percent, price, days, type, data,key}) {
   
   const sale= (percent * price ) /100
@@ -9,7 +9,7 @@ function Card({image, title, percent, price, days, type, data,key}) {
   return (
 
      
-    
+    <AnimatePresence mode="wait">
       
       <motion.div className=' ml-4 max-w-[210px] relative cursor-not-allowed'
       
@@ -89,7 +89,7 @@ function Card({image, title, percent, price, days, type, data,key}) {
       
     </motion.div>
 
-
+    </AnimatePresence>
 
 
   )

@@ -1,14 +1,14 @@
 import React from 'react'
 import { TbAppsFilled } from "react-icons/tb";
 
-const TableSection = ({image, title, genre, price, percent}) => {
+const TableSection = ({image, title, genre, price, percent, hoverMouse, id, currentiD}) => {
 
     const sale= (percent * price ) /100
     const priceAfterDiscount= (price-sale).toFixed(2)
   
 
   return (
-    <div className='flex  items-center justify-between pb-3 mb-4 bg-black/[0.3] text-white drop-shadow-xl border-2 border-none  hover:bg-white/[0.3] hover:text-black'>
+    <div className={`flex  items-center justify-between pb-3 mb-4 ${id=== currentiD? "bg-white/[0.3] text-black"  : "bg-black/[0.3] text-white "}  drop-shadow-xl border-2 border-none cursor-not-allowed`} onMouseEnter={()=>hoverMouse(id)} >
         
         <div className=' flex items-center'>
         <div className=' mt-3'> <img src ={image} /></div>

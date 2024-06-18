@@ -136,7 +136,7 @@ else{
           </div>
 
     {/* tabs */}
-<Table  changeData={changeData} activedTabsData={activedTabsData}  startContent={activedTabsData[0]}/>
+<Table  changeData={changeData} activedTabsData={activedTabsData}  startContent={activedTabsData? activedTabsData[0]: ''} />
 
 
 
