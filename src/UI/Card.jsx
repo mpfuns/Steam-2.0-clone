@@ -53,7 +53,7 @@ function Card({image, title, percent, price, days, type, data,key}) {
           <img src={data.image} alt=""  className=' object-cover w-full  h-full'/>
          
           </div> 
-         <div className='h-[4rem] text-2xl text-center text-black' >
+         <div className='h-[4rem] text-2xl text-center text-black px-4' >
          <p >{data.genre.toUpperCase()}</p>
          </div>
         </div>
@@ -70,7 +70,7 @@ function Card({image, title, percent, price, days, type, data,key}) {
          <div className='h-[8rem] w-full cursor-not-allowed'>
          <img src={image} alt=""  className=' object-cover w-full  h-full'/>
          </div>
-       <div className="bg-[#1F7499] h-[2rem] w-full" >
+       <div className="bg-[#1F7499] h-[2rem] w-full px-10" >
          
        <div className='flex ml-2 '>
        {sale? 

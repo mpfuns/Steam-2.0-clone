@@ -29,11 +29,11 @@ const hoverMouse = (id) =>{
     <div  
     
     
-    className='border-slate-100 border-4 rounded-lg' style={{backgroundColor: mainColor, transition: "background-color 0.5s linear",} }>
+    className='border-slate-100 border-4 rounded-lg mx-3' style={{backgroundColor: mainColor, transition: "background-color 0.5s linear",} }>
         <Tabs handleTabClick={handleTabClick} />
         
         <div className='flex justify-between mt-4 '>
-        <div className='ml-2 w-2/3'>
+        <div className='ml-2 w-full  md:w-2/3'>
             {activedTabsData?.map( data=> <TableSection key={data.id} id={data.id} image={data.main_thumbnail} title={data.game_title}  genre={data.genre} price={data.price_full} percent={data.price_discount} hoverMouse={hoverMouse}   currentiD={currentContent? currentContent.id : startContent.id}/>)}
             <div className='bg-black/[0.3] text-white py-2 mb-2 flex  justify-end'>
                 <div className=' mr-2'> 
@@ -51,7 +51,7 @@ const hoverMouse = (id) =>{
         exit={{opacity:0}}
         transition={{duration: 1}}
         
-        className='w-1/3 bg-white/[0.3] mx-4 px-2 pt-2 mb-4 ' > 
+        className='w-1/3 bg-white/[0.3] mx-4 px-2 pt-2 mb-4 hidden md:block ' > 
         
             <h2 className='text-3xl'>{currentContent? currentContent.game_title : startContent.game_title}</h2>
             <div className=' my-4  flex flex-col items-center pl-4 bg-black/[0.4] py-4 text-white gap-1'> 

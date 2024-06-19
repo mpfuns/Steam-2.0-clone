@@ -10,8 +10,8 @@ const Navbar = () => {
      <div className="bg-[#171a21]  ">
     <div  className=' flex  items-center max-w-[70vw] mx-auto relative '>
       {/*Left */}
-      <div className=" flex items-center justify-center  lg:justify-start py-2 px-2 lg:py-6 lg:py-6 lg:px-8 w-full lg:w-auto">
-       <div className="lg:hidden left-4 absolute text-white">
+      <div className=" flex items-center justify-center  lg:justify-start py-2 px-2  lg:py-6 lg:px-8 w-full lg:w-auto">
+       <div className="lg:hidden left-4 absolute text-white cursor-not-allowed">
         <FiMenu  className='text-[30px]'/>
        </div>
         <div className="flex items-center text-[#C5C3C0] font-semibold text-[26px] ">

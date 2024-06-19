@@ -26,11 +26,14 @@ useEffect(() => {
 
 
   return (
-    <div className=' mt-1' key={key} >
-            <div className="flex place-content-between">
+    <div className=' mt-1 w-full' key={key} >
+      {window.innerWidth >= 900? (<div className="flex place-content-between">
               {cards.map((item)=>(<Card image={item.main_thumbnail} title={item.game_title} percent={item.price_discount} price={item.price_full} days={item.days} type={type} data={item} key={key} />))}
                
-            </div>
+            </div>)  : (<div className='flex flex-row gap-1 overflow-x-scroll overflow-hidden w-full '>
+              {data.map((item)=>(<Card image={item.main_thumbnail} title={item.game_title} percent={item.price_discount} price={item.price_full} days={item.days} type={type} data={item} key={key} />))}
+            </div>) }
+            
 
     </div>
   )

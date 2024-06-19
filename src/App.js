@@ -7,7 +7,11 @@ import  gameData  from "./data/videogame_DATA.json";
 import  category from "./data/genre_Data.json"
 import Table from "./Components/Table";
 import { motion} from 'framer-motion';
-import logo from "./assets/steam-2.0-clone.png"
+import logo from "./assets/steam-2.0-clone.png";
+import { FaFacebook } from "react-icons/fa";
+import { FaSquareXTwitter } from "react-icons/fa6";
+import Lottie from 'lottie-react'
+import ad from "./assets/fix_size.json"
 
 
 // the  api  didn't work 'https://www.freetogame.com/api/games'
@@ -118,12 +122,21 @@ else{
         {/* Special offers  */}
          <section className=' mt-[0.2rem] text-white text-[14px]'>
           <Slider section="Discount Games" data={discountData} numDots={4} numCards={5}/>
+          
          </section>
+{/* ads */}
+
+<div className="bg-green-500 h-80  relative cursor-not-allowed hover:shadow-emerald-400 hover:shadow-xl mx-2 ">
+<Lottie  className="  h-full  "  animationData={ad}/>
+
+</div>
+    
+
           {/*  Categorites card slider */}
           <section className=' mt-[0.2rem] text-white text-[14px]'>
           <Slider section="Search by Category" data={categoryData} numDots={5} numCards={4}/> 
           </section>
-        {/* ads */}
+
 
     {/* personalized recommendtions content*/}
     <section className=" bg-[rgb(22,32,45)] text-gray-500  text-lg flex flex-col items-center p-10">
@@ -135,7 +148,7 @@ else{
     {/* Buttons */}
     <section className="max-w-[1400px]  w-full m-auto py-16 px-4 text-white">
       <h3 className="">Browse Sink</h3>
-    <div className="mt-2 grid grid-cols-4 center gap-3">
+    <div className="mt-2 grid grid-cols-2 center gap-3 md:grid-cols-4">
       <motion.button whileHover={{scale:0.8, filter: "brightness(1.2)" }} className=" bg-[#0CB2FF] text-center py-6 text-2xl">Free Games</motion.button>
       <motion.button whileHover={{scale:0.8, filter: "brightness(1.2)" }} className=" bg-[#0CB2FF] text-center py-6 text-2xl">Tags</motion.button>
       <motion.button whileHover={{scale:0.8, filter: "brightness(1.2)" }} className=" bg-[#0CB2FF] text-center py-6 text-2xl">Xbox</motion.button>
@@ -151,11 +164,6 @@ else{
 
     {/* tabs */}
 <Table  changeData={changeData} activedTabsData={activedTabsData}  startContent={activedTabsData? activedTabsData[0]: ''} />
-
-
-
-
-    {/* ads */}
        
       </div>
       
@@ -167,14 +175,26 @@ else{
 <p>Or <span className="text-white cursor-not-allowed">Sign up</span>  and join Sink for free</p>
     </section>
       {/* Footer  */ }
-     <footer className="max-w-[1400px]  w-full m-auto py-4 px-4">
+     <footer className="max-w-[1400px]  w-full m-auto py-4 px-4 pb-8">
       <hr></hr>
-      <div><img src={logo}  className="w-12 h-12 mr-2" /> 
-      <div> <span>&copy; 2024 Sink. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi eget mauris pharetra et.</span>
+      <div className="flex my-2 gap-1 ">
+        <img src={logo}  className="w-12 h-12 mr-2" /> 
+      <div> 
+        <span className=" text-gray-700">&copy; 2024 Sink. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi eget mauris pharetra et.<span className=" text-white px-2 cursor-not-allowed">Privacy Policy</span>|<span className=" text-white px-2 cursor-not-allowed">Legal</span>|<span className=" text-white px-2 cursor-not-allowed">Subscriber Agreement</span>|<span className=" text-white px-2 cursor-not-allowed">Refunds</span>|<span className=" text-white px-2 cursor-not-allowed">Cookies</span></span>
       </div>
+      <img src={logo}  className="w-12 h-12 mr-2" /> 
       </div>
       <hr></hr>
-      <div></div>
+      <div className="flex flex-wrap justify-around mt-4 mb-8">
+      <span className=" text-white px-2 cursor-not-allowed">About Sink</span>|
+      <span className=" text-white px-2 cursor-not-allowed">Jobs</span>|
+      <span className=" text-white px-2 cursor-not-allowed">SinkWorks</span>|
+      <span className=" text-white px-2 cursor-not-allowed">Support</span>|
+      <span className=" text-white px-2 cursor-not-allowed">Distribution</span>|
+      <span className=" text-white px-2 cursor-not-allowed">Gift Code</span>|
+      <span className=" text-white px-2 cursor-not-allowed flex items-center gap-1"><FaFacebook />Sink</span>|
+      <span className=" text-white px-2 cursor-not-allowed flex items-center gap-1"><FaSquareXTwitter />Sink</span>
+      </div>
      </footer>
     </div>
     
