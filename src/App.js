@@ -7,6 +7,7 @@ import  gameData  from "./data/videogame_DATA.json";
 import  category from "./data/genre_Data.json"
 import Table from "./Components/Table";
 import { motion} from 'framer-motion';
+import logo from "./assets/steam-2.0-clone.png"
 
 
 // the  api  didn't work 'https://www.freetogame.com/api/games'
@@ -159,11 +160,25 @@ else{
       </div>
       
       {/*personalized recommendtions footer */ }
+      <section className="mt-8 bg-black text-gray-500  text-lg flex flex-col items-center p-10">
+        <h3 className=" text-3xl mb-4 text-[#0CB2FF]">Searching  for recommendations?</h3>
+<p>Sign in to view other recommendations</p>
+<button className=" bg-green-700 text-[#B3DC2E] text-xl my-4 p-3 rounded-sm cursor-not-allowed">Sign in</button>
+<p>Or <span className="text-white cursor-not-allowed">Sign up</span>  and join Sink for free</p>
+    </section>
       {/* Footer  */ }
-      <div  className="h-screen"></div>
+     <footer className="max-w-[1400px]  w-full m-auto py-4 px-4">
+      <hr></hr>
+      <div><img src={logo}  className="w-12 h-12 mr-2" /> 
+      <div> <span>&copy; 2024 Sink. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi eget mauris pharetra et.</span>
+      </div>
+      </div>
+      <hr></hr>
+      <div></div>
+     </footer>
     </div>
     
-  );
+  )
 }
 
 export default App;
