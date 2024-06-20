@@ -177,10 +177,10 @@ else{
       {/* Footer  */ }
      <footer className="max-w-[1400px]  w-full m-auto py-4 px-4 pb-8">
       <hr></hr>
-      <div className="flex my-2 gap-1 ">
-        <img src={logo}  className="w-12 h-12 mr-2" /> 
+      <div className="flex my-2 gap-1 flex-col  items-center md:flex-row ">
+        <img src={logo}  className="w-12 h-12 mr-2 my-1" /> 
       <div> 
-        <span className=" text-gray-700">&copy; 2024 Sink. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi eget mauris pharetra et.<span className=" text-white px-2 cursor-not-allowed">Privacy Policy</span>|<span className=" text-white px-2 cursor-not-allowed">Legal</span>|<span className=" text-white px-2 cursor-not-allowed">Subscriber Agreement</span>|<span className=" text-white px-2 cursor-not-allowed">Refunds</span>|<span className=" text-white px-2 cursor-not-allowed">Cookies</span></span>
+        <span className=" text-gray-700 ">&copy; 2024 Sink. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi eget mauris pharetra et.<span className=" text-white px-2 cursor-not-allowed">Privacy Policy</span>|<span className=" text-white px-2 cursor-not-allowed">Legal</span>|<span className=" text-white px-2 cursor-not-allowed">Subscriber Agreement</span>|<span className=" text-white px-2 cursor-not-allowed">Refunds</span>|<span className=" text-white px-2 cursor-not-allowed">Cookies</span></span>
       </div>
       <img src={logo}  className="w-12 h-12 mr-2" /> 
       </div>
